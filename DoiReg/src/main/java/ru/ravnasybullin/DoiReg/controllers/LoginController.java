@@ -30,6 +30,7 @@ public class LoginController {
         return PageConstants.LOGIN_TEMPLATE_NAME;
     }
 
+
     @PostMapping(PageConstants.LOGIN_PAGE)
     public String authorize(@RequestParam String username,
                             @RequestParam String password,

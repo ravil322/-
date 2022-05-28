@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<body xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="user_menu">
+  <div class="menu">
+    <div id="logo" class="header">
+        <span>DoiRegistrar</span>
+    </div>
+
+    <div class="menu-item"
+         th:onclick="'location.href=\'__${T(ru.ravnasybullin.DoiReg.PageConstants.PageConstants).VIEW_ARTICLES_PAGE}__\''">
+      <span class="image"></span>
+      <span>Список статей</span>
+
+    </div>
+
+<!--    <div class="menu-item"-->
+<!--         th:onclick="'location.href=\'__${T(ru.bikmuratov.invest.operator.ui.common.PageConstants).USER_LIST_PAGE}__\''">-->
+<!--      <span class="image"></span>-->
+<!--      <span>Управление пользователями</span>-->
+<!--      <div class="menu-sub-items" th:replace="~{sub-menu :: sub_menu(-->
+<!--            sub_items_names = ${ {'Управление пользователями', 'Управление партнерами'} },-->
+<!--            sub_items_links = ${ {'__${T(ru.bikmuratov.invest.operator.ui.common.PageConstants).USER_LIST_PAGE}__',-->
+<!--             '__${T(ru.bikmuratov.invest.operator.ui.common.PageConstants).PARTNER_LIST_PAGE}__'} }-->
+<!--             )}">-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div th:if="${@customSecurityService.hasRole(@customSecurityService.getUserFromAuthentication(), 'ADMIN')}"-->
+<!--         class="menu-item"-->
+<!--         th:onclick="'location.href=\'__${T(ru.bikmuratov.invest.operator.ui.common.PageConstants).SETTINGS_PAGE}__\''">-->
+<!--      <span class="image"></span>-->
+<!--      <span>Настройки</span>-->
+<!--      <div class="menu-sub-items" th:replace="~{sub-menu :: sub_menu(-->
+<!--            sub_items_names = ${ {'Настройки (старые)', 'Настройки (новые)', 'Настройки секторов', 'Почтовые сообщения'} },-->
+<!--            sub_items_links = ${ {'__${T(ru.bikmuratov.invest.operator.ui.common.PageConstants).SETTINGS_PAGE}__',-->
+<!--             '__${T(ru.bikmuratov.invest.operator.ui.common.PageConstants).NEW_SETTINGS_PAGE}__',-->
+<!--             '__${T(ru.bikmuratov.invest.operator.ui.common.PageConstants).SECTOR_SETTINGS_PAGE}__',-->
+<!--             '__${T(ru.bikmuratov.invest.operator.ui.common.PageConstants).EMAIL_LIST_PAGE}__'} }-->
+<!--             )}">-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div th:if="${@customSecurityService.hasRole(@customSecurityService.getUserFromAuthentication(), 'ADMIN')}"-->
+<!--         class="menu-item"-->
+<!--         th:onclick="'location.href=\'__${T(ru.bikmuratov.invest.operator.ui.common.PageConstants).ARTICLE_LIST_PAGE}__\''">-->
+<!--      <span class="image"></span>-->
+<!--      <span>Статьи</span>-->
+<!--      <div class="menu-sub-items" th:replace="~{sub-menu :: sub_menu(-->
+<!--            sub_items_names = ${ {'Статьи', 'Авторы'} },-->
+<!--            sub_items_links = ${ {'__${T(ru.bikmuratov.invest.operator.ui.common.PageConstants).ARTICLE_LIST_PAGE}__',-->
+<!--             '__${T(ru.bikmuratov.invest.operator.ui.common.PageConstants).AUTHOR_LIST_PAGE}__'} }-->
+<!--             )}">-->
+<!--      </div>-->
+<!--    </div>-->
+  </div>
+  <script th:inline="javascript">
+      $('.menu-item').on({
+          mouseenter: function () {
+              $('.sub-menu', this).css('display', 'block');
+          },
+          mouseleave: function () {
+              $('.sub-menu', this).css('display', 'none');
+          }
+      })
+  </script>
+</th:block>
+</body>
+</html>

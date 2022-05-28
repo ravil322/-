@@ -1,0 +1,52 @@
+.menu {
+    width: 200px;
+    background: #F2F4FB;
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+    font: 500 16px 'Grotesque';
+    color: #878787;
+}
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    text-align: center;
+}
+.menu-item span.image {
+    width: 50px;
+    height: 24px;
+    display: inline-block;
+}
+.menu-item.active {
+    color: #000;
+}
+
+.menu-item.active span.image,
+.menu-item:hover span.image,
+.menu-item:active span.image {
+    background-position: 50px 0;
+}
+
+.menu-item.client span.image {
+    background-image: url("/img/users.svg");
+}
+.sub-menu {
+    position: absolute;
+    left: 200px;
+    background: #F2F4FB;
+    width: 200px;
+    display: none;
+    z-index: 2;
+    text-align: center;
+}
+.sub-menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    text-align: center;
+}

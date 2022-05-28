@@ -1,0 +1,104 @@
+.body [type=radio] {
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    margin: 0;
+}
+.body [type="radio"] {
+    position: absolute;
+    left: -9999px;
+}
+.body [type="radio"] + label {
+    position: relative;
+    cursor: pointer;
+    height: 24px;
+    display: inline-block;
+    color: #1B1B1B;
+    font-weight: 500;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    padding-left: 40px;
+}
+.body [type="radio"] + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -6px;
+    border-radius: 100%;
+    background: #878787;
+}
+.body [type="radio"] + label:after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 2px;
+    border-radius: 100%;
+    background: #FFF;
+}
+.body [type="radio"]:not(:checked) + label:before {
+    width: 32px;
+    height: 32px;
+    background: #878787;
+}
+
+.body [type="radio"]:not(:checked) + label:after {
+    width: 28px;
+    height: 28px;
+    left: 2px;
+    top: -4px;
+}
+.body [type="radio"]:checked + label:before {
+    background: #00BDD1;
+    height: 32px;
+    width: 32px;
+}
+.body [type="radio"]:checked + label:after {
+    top: 5px;
+    left: 11px;
+    width: 10px;
+    height: 10px;
+}
+
+.body [type=checkbox] {
+    cursor: pointer;
+    /*height: 0;*/
+    /*width: 0;*/
+    margin: 0;
+}
+.body [type=checkbox] {
+    /*position: absolute;*/
+    /*left: -9999px;*/
+}
+.body [type=checkbox] + label,
+.body [type=checkbox] + [type=hidden] + label {
+    position: relative;
+    cursor: pointer;
+    height: 32px;
+    display: flex;
+    color: #1B1B1B;
+    font-weight: 500;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    padding-left: 40px;
+    align-items: center;
+}
+.body [type=checkbox]:checked + label,
+.body [type=checkbox]:checked + [type=hidden] + label{
+    font-weight: bold;
+}
+.body [type=checkbox] + label:before,
+.body [type=checkbox] + [type=hidden] + label:before {
+    content: '';
+    position: absolute;
+    height: 32px;
+    width: 32px;
+    left: 0;
+}
+.body [type=checkbox]:not(:checked) + label:before,
+.body [type=checkbox]:not(:checked) + [type=hidden] + label:before{
+    background: #E7EAF4;
+}
+.body [type=checkbox]:checked + label:before,
+.body [type=checkbox]:checked + [type=hidden] + label:before{
+    background: url('/img/checked.svg') center no-repeat #38B594;
+}

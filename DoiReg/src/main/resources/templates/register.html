@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Зарегистрировать DOI для статьи</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script th:src="@{/js/getMetadata.js}"></script>
+
+
+</head>
+<body>
+<div class="body">
+    <form class="login-form-reg">
+        <label>Внесите данные:</label>
+        <div >
+            <div class="field">
+                <label class="text-field__label" for="doi">DOI</label>
+                <input class="text-field__input" placeholder="Введите DOI для статьи" id="doi" type="text" name="doi"/>
+
+            </div>
+            <div class="field">
+                <label class="text-field__label" for="url">URL статьи</label>
+                <input class="text-field__input" placeholder="Введите URL вашей статьи" id="url" type="text" name="url"/>
+            </div>
+
+            <label class="reg-label">Загрузите статью для определения метаданных</label>
+<!--            <div class="flex-container">-->
+<!--                <button class="button-add" type="submit">Загрузите статью для определения метаданных</button>-->
+<!--            </div>-->
+<!--            <form enctype="multipart/form-data" method="get">-->
+<!--                <p><input type="file" name="f"></p>-->
+<!--                <p><input type="submit" value="Определить метаданные"></p>-->
+<!--            </form>-->
+
+            <p><input type="file" name="f"></p>
+            <button onclick="getMetadata()">Зарегистрировать DOI</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

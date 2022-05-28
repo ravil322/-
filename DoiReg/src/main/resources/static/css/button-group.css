@@ -1,0 +1,108 @@
+.button-group {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    padding: 30px;
+}
+button {
+    height: 40px;
+    color: #FFF;
+    font: 16px 'Grotesque';
+    font-weight: bold;
+    background: #00BDD1;
+    width: 200px;
+    margin-right: 50px;
+    margin-top: 20px;
+    border: 0;
+    border-radius:10px;
+}
+.connected-steps {
+    display: flex;
+    width: 480px;
+    height: 32px;
+}
+.connected-steps .step {
+    position: relative;
+    color: #242424;
+    display: block;
+    text-align: center;
+    z-index: 2;
+}
+.connected-steps .step span {
+    position: absolute;
+    width: 50px;
+    top: 33px;
+    left: -10px;
+    font: 14px 'Grotesque';
+    font-weight: normal;
+    color: #1B1B25;
+}
+.connected-steps .connector {
+    position: relative;
+    top: 14px;
+    flex-grow: 1; //fill the space
+content: "";
+    display: block;
+    height: 2px;
+    background-color: #00BDD1;
+}
+.connected-steps .connector.inactive {
+    background-color: #E7EAF4;
+}
+.connected-steps .step::before {
+    content: ' ';
+    background: #E7EAF4;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 14px;
+}
+.connected-steps .step::after {
+    content: ' ';
+    background: #FFF;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border-radius: 14px;
+}
+.connected-steps .step.next::before,
+.connected-steps .step.active::before,
+.connected-steps .step.done::before {
+    background: #00BDD1;
+}
+.connected-steps .step.active::before {
+    width: 32px;
+    height: 32px;
+    top: -2px;
+    left: -2px;
+    border-radius:16px;
+}
+.connected-steps .step.active::after {
+    width: 10px;
+    height: 10px;
+    left: 9px;
+    top: 9px;
+}
+.connected-steps .step.done::after {
+    background: url("/img/done-icon.svg") no-repeat center #00BDD1;
+}
+.roles .button-group,
+.tags .button-group {
+    padding-left: 25px;
+}
+.roles .button-group button,
+.tags .button-group button {
+    margin-top: 22px;
+}
+.demo-api button {
+    margin-top: 22px;
+}
+.roles .button-group .chosen-container,
+.tags-field  {
+    margin-right: 50px;
+}

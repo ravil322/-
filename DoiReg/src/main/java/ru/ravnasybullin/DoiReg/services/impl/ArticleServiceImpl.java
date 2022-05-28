@@ -17,7 +17,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public List<Article> getArticles() {
-        var articles = articleRepository.findAll();
+        List<Article> articles = articleRepository.findAll();
 
         return articles;
     }

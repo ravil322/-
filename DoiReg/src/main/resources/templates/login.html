@@ -16,30 +16,49 @@
             $('select').chosen();
         });
     </script>
+
+    <style>html {
+        height: 100%;
+        background-image: url("https://papik.pro/uploads/posts/2021-11/thumbs/1636593368_17-papik-pro-p-html-risunok-fona-18.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }</style>
+
 </head>
 <body>
 <!--<th:block th:replace="messages">-->
 <!--</th:block>-->
 <div class="product-name">
-    <span class="logo"></span>
+    <div><img class="logo" src="https://images.vector-images.com/clp4/204746/clp1967236.jpg"></div>
     <span class="name">Авторизация</span>
 </div>
 <div class="body">
     <form class="login-form" th:action="@{/login}" method="post">
-        <div class="top">
-            <span th:if="${#httpServletRequest.getParameter('error') ne null}">Неверное имя пользователя или пароль</span>
+        <div>
+
             <span th:if="${#httpServletRequest.getParameter('logout') ne null}">Вы вышли из системы</span>
         </div>
-        <div class="bottom">
+        <div >
             <div class="field">
-                <input id="username" type="text" name="username"/>
-                <label for="username">Логин</label>
+                <label class="text-field__label" for="username">Логин</label>
+                <input class="text-field__input" placeholder="Введите Ваш логин" id="username" type="text" name="username"/>
+
             </div>
             <div class="field">
-                <input id="password" type="password" name="password" autocomplete="current-password"/>
-                <label for="password">Пароль</label>
+                <label class="text-field__label" for="password">Пароль</label>
+                <input class="text-field__input" placeholder="Введите Ваш пароль" id="password" type="password" name="password" autocomplete="current-password"/>
+
             </div>
+            <span class="error-password" th:if="${#httpServletRequest.getParameter('error') ne null}">Неверное имя пользователя или пароль</span>
+
+            <div class="flex-container">
             <button type="submit">Войти</button>
+            </div>
         </div>
     </form>
 </div>
