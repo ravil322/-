@@ -3,10 +3,12 @@ package ru.ravnasybullin.DoiReg.controllers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import ru.ravnasybullin.DoiReg.PageConstants.PageConstants;
 import ru.ravnasybullin.DoiReg.models.Article;
 import ru.ravnasybullin.DoiReg.services.ArticleService;
@@ -14,7 +16,7 @@ import ru.ravnasybullin.DoiReg.services.ArticleService;
 import java.util.List;
 
 @Controller
-@SessionAttributes("article")
+@SessionAttributes("articles")
 public class ArticleManageController {
     private static final Logger LOGGER = LoggerFactory.getLogger(ArticleManageController.class);
 
@@ -22,11 +24,8 @@ public class ArticleManageController {
     private ArticleService articleService;
 
 
-
-
     @GetMapping(PageConstants.VIEW_ARTICLES_PAGE)
-    public String getAllArticles(Model model
-                                 ) {
+    public String getAllArticles(Model model) {
         List<Article> articleList = articleService.getArticles();
         model.addAttribute("articles", articleList);
         model.addAttribute("title", "Управление статьями");

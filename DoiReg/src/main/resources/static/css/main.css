@@ -511,3 +511,6 @@ div.filter-frame .new button {
 #charset + .chosen-container {
     width: 200px;
 }
+.hidden {
+    display: none;
+}

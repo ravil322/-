@@ -39,7 +39,7 @@ public class DoiRegistrarApplication {
 
             User admin = new User();
             admin.setLogin("admin");
-            admin.setPassword(passwordEncoder.encode("Rawnb123"));
+            admin.setPassword(passwordEncoder.encode("123"));
             admin = userRepository.save(admin);
         }
     }

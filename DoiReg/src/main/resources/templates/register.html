@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Зарегистрировать DOI для статьи</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script th:src="@{/js/getMetadata.js}"></script>
 
@@ -11,30 +12,49 @@
 </head>
 <body>
 <div class="body">
-    <form class="login-form-reg">
+    <form class="login-form-reg" th:action="@{/view/registrar}" method="post" enctype="multipart/form-data">
         <label>Внесите данные:</label>
-        <div >
+        <div>
             <div class="field">
                 <label class="text-field__label" for="doi">DOI</label>
-                <input class="text-field__input" placeholder="Введите DOI для статьи" id="doi" type="text" name="doi"/>
+                <input class="text-field__input" placeholder="Введите DOI для статьи" id="doi" type="text" th:field="${article.doi}"/>
 
             </div>
             <div class="field">
-                <label class="text-field__label" for="url">URL статьи</label>
-                <input class="text-field__input" placeholder="Введите URL вашей статьи" id="url" type="text" name="url"/>
+                <label class="text-field__label" for="articleUrl">URL статьи</label>
+                <input class="text-field__input" placeholder="Введите URL вашей статьи" id="articleUrl" type="text"
+                       th:field="${article.articleUrl}"/>
             </div>
 
             <label class="reg-label">Загрузите статью для определения метаданных</label>
-<!--            <div class="flex-container">-->
-<!--                <button class="button-add" type="submit">Загрузите статью для определения метаданных</button>-->
-<!--            </div>-->
-<!--            <form enctype="multipart/form-data" method="get">-->
-<!--                <p><input type="file" name="f"></p>-->
-<!--                <p><input type="submit" value="Определить метаданные"></p>-->
-<!--            </form>-->
-
-            <p><input type="file" name="f"></p>
-            <button onclick="getMetadata()">Зарегистрировать DOI</button>
+            <div class="field">
+                <input id="docx-file" type="file" name="docx-file">
+            </div>
+            <p>
+                <button type="button" onclick="getMetadata()">Получить метаданные</button>
+            </p>
+            <div class="metadata hidden">
+                <div class="field">
+                    <label for="title">Название статьи:</label>
+                    <input id="title" name="title" th:field="${article.title}" type="text" class="text-field__input">
+                </div>
+                <div class="field">
+                    <label for="authors">Авторы:</label>
+                    <input id="authors" name="authors" th:field="${article.authors}" type="text"
+                           class="text-field__input">
+                </div>
+                <div class="field">
+                    <label for="keyWords">Ключевые слова:</label>
+                    <input id="keyWords" name="keyWords" th:field="${article.keyWords}" type="text"
+                           class="text-field__input">
+                </div>
+                <div class="field">
+                    <label for="publicationYear">Год выпуска:</label>
+                    <input id="publicationYear" name="publicationYear" th:field="${article.publicationYear}"
+                           type="number" class="text-field__input">
+                </div>
+            </div>
+            <input type="submit" value="Сохранить"/>
         </div>
     </form>
 </div>

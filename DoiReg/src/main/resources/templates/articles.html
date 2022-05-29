@@ -25,6 +25,7 @@
                 <th>Дата выпуска</th>
                 <th>URL статьи</th>
                 <th>DOI</th>
+                <th>Кл. слова</th>
                 </thead>
                 <tbody>
                 <tr th:each="a,counter : ${articles}" th:with="i = 1"
@@ -36,6 +37,7 @@
                     <td th:text="${a.publicationYear}"></td>
                     <td th:text="${a.articleUrl}"></td>
                     <td th:text="${a.doi}"></td>
+                    <td th:text="${a.keyWords}"></td>
 
                 </tr>
                 </tbody>

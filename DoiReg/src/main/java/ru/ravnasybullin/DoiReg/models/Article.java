@@ -29,4 +29,6 @@ public class Article {
 
     private Integer publicationYear;
 
+    private String keyWords;
+
 }
